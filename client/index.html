@@ -7,6 +7,8 @@
 
     <!-- dependencies -->
     <script src="bower_components/jquery/jquery.min.js"></script>
+    <script src="bower_components/underscore/underscore-min.js"></script>
+    <script src="bower_components/backbone/backbone-min.js"></script>
     <!-- your scripts -->
     <script src="env/config.js"></script>
     <script src="scripts/app.js"></script>
@@ -14,7 +16,29 @@
   <body>
     <div id="main">
       <h1>chatterbox</h1>
-      <!-- Your HTML goes here! -->
+      <form action="">
+        <label for="rooms">Rooms</label>
+        <select id="rooms"></select>
+        <input type="text" name="message" id="message" />
+        <input type="submit" value="Submit" />
+      </form>
+      <div class="chat"></div>
     </div>
+    <script>
+      $(function () {
+        
+        var chat = new app.Views.ChatView({
+          collection: new app.Collections.Messages()
+        });
+
+
+
+
+        // $("form").on("submit", function () {
+        //   app.send($("#message").val());
+        //   return false;
+        // });
+      });
+    </script>
   </body>
 </html>
